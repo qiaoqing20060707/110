@@ -1,0 +1,1320 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#355E3B">
+<title>經營管理學院｜學生作品展示</title>
+
+<style>
+:root {
+  --primary: #355E3B;
+  --accent: #B7C9A8;
+  --background: #F4F1E8;
+  --white: #FFFFFF;
+  --text: #26352A;
+  --muted: #687568;
+  --border: #DCE3D5;
+  --footer: #302E2E;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* 導覽列 */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(244,241,232,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.brand-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-size: 1.4rem;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 17px;
+  font-size: .88rem;
+  font-weight: 700;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+/* 首頁 */
+.hero {
+  padding: 85px 0 75px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(183,201,168,.55), transparent 28%),
+    linear-gradient(135deg, #F4F1E8, #E8EEDF);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 5px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 30px;
+  background: rgba(183,201,168,.25);
+  color: var(--primary);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  color: var(--primary);
+  font-size: clamp(2.5rem,5vw,4.2rem);
+  line-height: 1.25;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
+
+.hero h1 span {
+  display: block;
+  font-size: .32em;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+
+.hero-description {
+  color: var(--muted);
+  max-width: 560px;
+  margin-bottom: 30px;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid var(--primary);
+  font-weight: 700;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-outline {
+  color: var(--primary);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+}
+
+.hero-art {
+  min-height: 330px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.art-circle {
+  width: min(310px,75vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg,var(--accent),#E3E9D9);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(53,94,59,.12);
+}
+
+.art-inner {
+  width: 75%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--primary);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 7rem;
+}
+
+.floating-card {
+  position: absolute;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(53,94,59,.10);
+  color: var(--primary);
+  font-weight: 700;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-card.one { top: 20px; right: 0; }
+.floating-card.two { left: 0; bottom: 25px; animation-delay: -2s; }
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-9px); }
+}
+
+/* 共用區塊 */
+section {
+  padding: 76px 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-label {
+  color: var(--primary);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  color: var(--primary);
+  font-size: clamp(1.8rem,4vw,2.6rem);
+  margin: 8px 0 12px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  max-width: 700px;
+  margin: auto;
+}
+
+/* 學院介紹 */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 24px;
+}
+
+.intro-card {
+  padding: 30px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(53,94,59,.08);
+}
+
+.intro-symbol {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.intro-card h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.intro-card p {
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  text-align: center;
+  background: #E7EDE1;
+  border-radius: 14px;
+  padding: 20px 12px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 1.7rem;
+  color: var(--primary);
+}
+
+/* 核心課程 */
+.courses-section,
+.works-section {
+  background: #E9EDE4;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 22px;
+}
+
+.course-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.course-card:hover,
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(53,94,59,.12);
+}
+
+.course-top {
+  min-height: 105px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--primary);
+  color: white;
+}
+
+.course-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255,255,255,.14);
+  font-size: 1.7rem;
+}
+
+.course-top h3 {
+  font-size: 1.05rem;
+}
+
+.course-body {
+  padding: 22px;
+}
+
+.course-body p {
+  color: var(--muted);
+  font-size: .94rem;
+  margin-bottom: 15px;
+}
+
+.tag,
+.work-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 3px 3px 0 0;
+  border-radius: 30px;
+  background: #E8EEE2;
+  color: var(--primary);
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+/* 學院特色 */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 25px 20px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: white;
+  text-align: center;
+  transition: .2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  width: 65px;
+  height: 65px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 15px;
+  border-radius: 20px;
+  background: #E7EDE1;
+  font-size: 2rem;
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* 學生作品 */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 22px;
+}
+
+.work-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: white;
+  transition: .25s;
+}
+
+.work-cover {
+  min-height: 175px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  background: var(--primary);
+  padding: 20px;
+}
+
+.work-cover span {
+  display: block;
+  font-size: 3.3rem;
+}
+
+.work-cover small {
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.cover-two { background: #607D62; }
+.cover-three { background: #849A78; }
+
+.work-content {
+  padding: 23px;
+}
+
+.work-content h3 {
+  margin: 12px 0 8px;
+  color: var(--primary);
+}
+
+.work-content p {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.work-button {
+  margin-top: 16px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.work-button:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.work-note {
+  margin-top: 26px;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--background);
+  color: var(--primary);
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 學生作品視窗 */
+.work-modal[hidden] {
+  display: none;
+}
+
+.work-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(20,35,24,.68);
+}
+
+.modal-content {
+  position: relative;
+  width: min(440px,100%);
+  padding: 35px;
+  border-radius: 20px;
+  background: var(--background);
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 1.3rem;
+}
+
+.modal-icon { font-size: 2.8rem; }
+
+.modal-content h3 {
+  margin: 10px 0;
+  color: var(--primary);
+}
+
+.modal-content p { color: var(--muted); }
+
+.modal-confirm {
+  margin-top: 22px;
+  padding: 10px 25px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+/* 智慧營運中心 */
+.ops-section {
+  background: var(--primary);
+  color: white;
+}
+
+.ops-section .section-label { color: var(--accent); }
+.ops-section .section-heading h2 { color: white; }
+.ops-section .section-heading p { color: #E0E8DC; }
+
+.ops-panel {
+  padding: 28px;
+  border: 1px solid rgba(255,255,255,.16);
+  background: rgba(255,255,255,.07);
+  border-radius: 20px;
+}
+
+.ops-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.live-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .85rem;
+  color: #E0E8DC;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #A8D5A2;
+  box-shadow: 0 0 12px #A8D5A2;
+}
+
+.ops-grid {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 15px;
+}
+
+.metric-card {
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.13);
+}
+
+.metric-label { color: #D9E3D4; font-size: .87rem; }
+.metric-value { font-size: 2rem; font-weight: 800; margin: 8px 0 3px; }
+.metric-note { font-size: .8rem; color: var(--accent); }
+
+.ops-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.ops-info {
+  padding: 22px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.07);
+}
+
+.ops-info h4 { color: var(--accent); margin-bottom: 10px; }
+.ops-info p { color: #E0E8DC; font-size: .92rem; }
+
+.ops-button {
+  margin-top: 23px;
+  padding: 11px 20px;
+  color: var(--primary);
+  background: var(--accent);
+  border: 0;
+  border-radius: 9px;
+  font-weight: 800;
+}
+
+.ops-button:hover { background: #D4E0C8; }
+.ops-button:disabled { opacity: .7; cursor: wait; }
+
+.update-message {
+  margin-top: 12px;
+  color: #E0E8DC;
+  font-size: .88rem;
+  min-height: 1.7em;
+}
+
+/* 參考圖片設計的學校頁尾 */
+.site-footer {
+  background: var(--footer);
+  color: #E7E5E5;
+  padding: 26px 0 30px;
+  font-size: .9rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 220px minmax(0,1.2fr) minmax(250px,1fr);
+  gap: 35px;
+  align-items: start;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 0;
+}
+
+.footer-logo svg {
+  width: 155px;
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-school h3 {
+  font-size: 1.05rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.footer-school .english-name {
+  display: block;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-school p {
+  margin: 4px 0;
+  overflow-wrap: anywhere;
+}
+
+.footer-school .contact-line {
+  border-left: 2px solid #C58B3D;
+  padding-left: 10px;
+}
+
+.footer-school .contact-title {
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.footer-legal {
+  color: #D0CECE;
+}
+
+.footer-legal p {
+  margin-bottom: 4px;
+}
+
+.footer-legal .copyright-note {
+  border-left: 2px solid #C58B3D;
+  padding-left: 8px;
+  margin-bottom: 20px;
+}
+
+.footer-legal .english-copyright {
+  margin-top: 20px;
+}
+
+.footer-divider {
+  border: 0;
+  border-top: 1px solid #777373;
+  margin: 20px 0 18px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.social-link {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: white;
+  transition: transform .2s, opacity .2s;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  opacity: .85;
+}
+
+.social-link svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.facebook { background: #1877F2; }
+.instagram {
+  background: linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);
+}
+.youtube {
+  background: #FF0000;
+  border-radius: 9px;
+  width: 48px;
+  height: 36px;
+}
+
+.youtube svg {
+  width: 28px;
+  height: 28px;
+}
+
+.footer-social-note {
+  margin-top: 10px;
+  color: #BDB9B9;
+  font-size: .78rem;
+}
+
+/* 平板 */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .course-grid, .work-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .feature-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ops-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+
+  .nav-inner {
+    padding: 13px 0;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-grid {
+    grid-template-columns: 140px 1fr;
+  }
+
+  .footer-legal {
+    grid-column: 2;
+  }
+}
+
+/* 手機 */
+@media (max-width: 560px) {
+  section { padding: 55px 0; }
+
+  .intro-grid, .course-grid, .work-grid, .ops-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .ops-panel { padding: 16px; }
+  .metric-card { padding: 15px; }
+  .metric-value { font-size: 1.6rem; }
+
+  .nav-links {
+    gap: 8px 13px;
+    font-size: .82rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-logo {
+    justify-content: flex-start;
+  }
+
+  .footer-logo svg {
+    width: 125px;
+  }
+
+  .footer-legal {
+    grid-column: auto;
+  }
+
+  .hero h1 { font-size: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 導覽列 -->
+<header class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="#home">
+      <span class="brand-icon">🌿</span>
+      <span>經營管理學院</span>
+    </a>
+
+    <nav class="nav-links" aria-label="主要導覽">
+      <a href="#about">學院介紹</a>
+      <a href="#courses">核心課程</a>
+      <a href="#features">學院特色</a>
+      <a href="#works">學生作品</a>
+      <a href="#operations">智慧營運中心</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- 首頁 -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">ACADEMY OF BUSINESS MANAGEMENT</span>
+        <h1>
+          經營管理學院
+          <span>Business Management Academy</span>
+        </h1>
+        <p class="hero-description">
+          結合管理知識、創新思維與數位科技，
+          培養具備溝通能力、分析能力與實務經驗的管理人才，
+          讓每一個想法都能成為實現目標的力量。
+        </p>
+        <div class="button-group">
+          <a class="btn btn-primary" href="#about">探索學院 →</a>
+          <a class="btn btn-outline" href="#works">瀏覽學生作品</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="森林自然風格插畫">
+        <div class="art-circle">
+          <div class="art-inner">🌳</div>
+        </div>
+        <div class="floating-card one">🌱 永續經營</div>
+        <div class="floating-card two">📊 智慧管理</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學院介紹 -->
+  <section id="about">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-label">About Our Academy</div>
+        <h2>學院介紹</h2>
+        <p>從管理理論到實務應用，建立全面的經營管理思維，學習分析問題、規劃策略並創造價值。</p>
+      </div>
+
+      <div class="intro-grid">
+        <article class="intro-card">
+          <div class="intro-symbol">🎯</div>
+          <h3>學院使命</h3>
+          <p>培養具備專業知識、團隊合作與問題解決能力的管理人才。透過實作、專題與案例分析，讓學生將課堂知識應用於企業經營、服務管理及創新創業。</p>
+        </article>
+
+        <article class="intro-card">
+          <div class="intro-symbol">🌏</div>
+          <h3>願景與理念</h3>
+          <p>以人為本、創新為動力、永續為方向。鼓勵學生關注顧客需求、善用數位工具，並以負責任的態度面對企業、社會與環境的挑戰。</p>
+        </article>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card"><strong>01</strong><span>管理思維</span></div>
+        <div class="stat-card"><strong>02</strong><span>實務應用</span></div>
+        <div class="stat-card"><strong>03</strong><span>創新永續</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心課程 -->
+  <section class="courses-section" id="courses">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-label">Core Courses</div>
+        <h2>核心課程</h2>
+        <p>透過不同領域的課程，建立經營企業與管理團隊所需的知識。</p>
+      </div>
+
+      <div class="course-grid">
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">📈</div><h3>企業經營與管理</h3></div>
+          <div class="course-body"><p>認識企業組織、管理功能、策略規劃與決策流程，學習有效運用資源。</p><span class="tag">管理學</span><span class="tag">策略規劃</span></div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">📣</div><h3>行銷與品牌管理</h3></div>
+          <div class="course-body"><p>從消費者需求、目標市場到品牌定位，學習規劃行銷活動並建立顧客關係。</p><span class="tag">行銷企劃</span><span class="tag">品牌經營</span></div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">🤝</div><h3>服務業管理</h3></div>
+          <div class="course-body"><p>了解顧客旅程、服務品質與顧客滿意度，設計更有價值的服務體驗。</p><span class="tag">顧客體驗</span><span class="tag">服務創新</span></div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">💡</div><h3>創新創業管理</h3></div>
+          <div class="course-body"><p>從創意發想、市場分析到商業模式，學習將想法發展成可行的創業計畫。</p><span class="tag">商業模式</span><span class="tag">創業企劃</span></div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">💻</div><h3>數位工具與資料分析</h3></div>
+          <div class="course-body"><p>運用試算表、人工智慧及數據分析工具，協助整理資訊與改善決策。</p><span class="tag">數位應用</span><span class="tag">資料分析</span></div>
+        </article>
+
+        <article class="course-card">
+          <div class="course-top"><div class="course-icon">🌿</div><h3>永續與地方創生</h3></div>
+          <div class="course-body"><p>結合地方文化、社區資源與永續理念，探索在地產業發展及社會創新。</p><span class="tag">永續發展</span><span class="tag">地方創生</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學院特色 -->
+  <section id="features">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-label">Our Features</div>
+        <h2>學院特色</h2>
+        <p>重視理論與實務並行，讓學生在學習過程中累積能力與經驗。</p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">🧩</div><h3>跨領域學習</h3><p>結合管理、行銷、科技與創新，培養多元思考能力。</p></article>
+        <article class="feature-card"><div class="feature-icon">🛠️</div><h3>實務專題</h3><p>透過案例研究、企劃提案與團隊合作解決實際問題。</p></article>
+        <article class="feature-card"><div class="feature-icon">🤖</div><h3>數位創新</h3><p>學習使用人工智慧與數位工具提升工作效率。</p></article>
+        <article class="feature-card"><div class="feature-icon">🌱</div><h3>永續思維</h3><p>重視企業責任、環境保護與地方發展。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學生作品 -->
+  <section class="works-section" id="works">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-label">Student Works</div>
+        <h2>學生作品</h2>
+        <p>展現學生的創意、專業與實作成果，讓每一份學習都成為成長的紀錄。</p>
+      </div>
+
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="work-cover"><div><span>🎨</span><small>CREATIVE DESIGN</small></div></div>
+          <div class="work-content">
+            <span class="work-tag">行銷企劃</span>
+            <h3>產品行銷海報設計</h3>
+            <p>運用色彩、標題與行銷標語，設計吸引顧客目光的產品海報。</p>
+            <button class="work-button" data-title="產品行銷海報設計" data-description="學生運用行銷概念，設計產品標題、宣傳標語與視覺版面，學習如何吸引目標客群。">查看作品介紹 →</button>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-cover cover-two"><div><span>💻</span><small>WEB DESIGN</small></div></div>
+          <div class="work-content">
+            <span class="work-tag">網頁設計</span>
+            <h3>互動式 HTML 網頁</h3>
+            <p>結合 HTML、CSS 與 JavaScript，製作具有互動功能的網頁。</p>
+            <button class="work-button" data-title="互動式 HTML 網頁" data-description="學生學習網頁架構、色彩配置、版面設計與 JavaScript 互動功能，將程式知識應用於實際作品。">查看作品介紹 →</button>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-cover cover-three"><div><span>📊</span><small>BUSINESS PLAN</small></div></div>
+          <div class="work-content">
+            <span class="work-tag">創業企劃</span>
+            <h3>品牌與創業企劃</h3>
+            <p>從目標客群、市場需求到服務設計，規劃具有特色的商業提案。</p>
+            <button class="work-button" data-title="品牌與創業企劃" data-description="學生分析目標市場與顧客需求，規劃品牌定位、服務內容及行銷方式，練習將創意轉化為可執行的企劃。">查看作品介紹 →</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="work-note">🌿 每一份作品，都是將課堂知識轉化為實務能力的成果。</div>
+    </div>
+  </section>
+
+  <!-- 學生作品介紹視窗 -->
+  <div class="work-modal" id="workModal" hidden>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="關閉視窗">✕</button>
+      <div class="modal-icon">🌱</div>
+      <h3 id="modalTitle">作品名稱</h3>
+      <p id="modalDescription">作品介紹</p>
+      <button class="modal-confirm" id="confirmModal">關閉</button>
+    </div>
+  </div>
+
+  <!-- 智慧營運中心 -->
+  <section class="ops-section" id="operations">
+    <div class="container">
+      <div class="section-heading">
+        <div class="section-label">Smart Operations Center</div>
+        <h2>智慧營運中心</h2>
+        <p>透過互動式管理儀表板，模擬觀察營運指標。以下數據為展示用的模擬資料。</p>
+      </div>
+
+      <div class="ops-panel">
+        <div class="ops-toolbar">
+          <h3>📊 營運管理儀表板</h3>
+          <div class="live-status"><span class="status-dot"></span>互動展示模式</div>
+        </div>
+
+        <div class="ops-grid">
+          <article class="metric-card"><div class="metric-label">學習參與度</div><div class="metric-value" id="participation">86%</div><div class="metric-note">模擬指標</div></article>
+          <article class="metric-card"><div class="metric-label">課程完成率</div><div class="metric-value" id="completion">92%</div><div class="metric-note">模擬指標</div></article>
+          <article class="metric-card"><div class="metric-label">專題進度</div><div class="metric-value" id="projects">78%</div><div class="metric-note">模擬指標</div></article>
+          <article class="metric-card"><div class="metric-label">資源使用率</div><div class="metric-value" id="resources">65%</div><div class="metric-note">模擬指標</div></article>
+        </div>
+
+        <div class="ops-bottom">
+          <div class="ops-info">
+            <h4>🌿 永續管理觀察</h4>
+            <p id="sustainability">鼓勵資源共享、數位化作業與環境友善的管理方式。</p>
+          </div>
+          <div class="ops-info">
+            <h4>💡 管理改善建議</h4>
+            <p id="recommendation">可從學習參與、課程回饋及專題進度進行觀察，作為改善參考。</p>
+          </div>
+        </div>
+
+        <button class="ops-button" id="updateButton">✨ 更新模擬數據</button>
+        <p class="update-message" id="updateMessage" role="status" aria-live="polite">點擊按鈕，體驗互動式營運儀表板。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- 參考慈濟大學網站風格的頁尾 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- 學校標誌示意圖：非官方校徽 -->
+      <div class="footer-logo" aria-label="學校標誌示意圖">
+        <svg viewBox="0 0 180 115" role="img" aria-label="綠色葉片與白色建築的示意標誌">
+          <defs>
+            <linearGradient id="leafGreen" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#9DCB48"/>
+              <stop offset="100%" stop-color="#008746"/>
+            </linearGradient>
+          </defs>
+          <g fill="url(#leafGreen)" stroke="#08713D" stroke-width="1">
+            <ellipse cx="39" cy="47" rx="10" ry="29" transform="rotate(-42 39 47)"/>
+            <ellipse cx="53" cy="35" rx="9" ry="27" transform="rotate(-32 53 35)"/>
+            <ellipse cx="67" cy="29" rx="8" ry="24" transform="rotate(-18 67 29)"/>
+            <ellipse cx="141" cy="47" rx="10" ry="29" transform="rotate(42 141 47)"/>
+            <ellipse cx="127" cy="35" rx="9" ry="27" transform="rotate(32 127 35)"/>
+            <ellipse cx="113" cy="29" rx="8" ry="24" transform="rotate(18 113 29)"/>
+            <ellipse cx="48" cy="72" rx="8" ry="23" transform="rotate(-65 48 72)"/>
+            <ellipse cx="132" cy="72" rx="8" ry="23" transform="rotate(65 132 72)"/>
+          </g>
+          <ellipse cx="90" cy="49" rx="42" ry="32" fill="#176E3A" stroke="#B7C9A8" stroke-width="2"/>
+          <ellipse cx="90" cy="49" rx="36" ry="26" fill="#355E3B" stroke="#9DCB48" stroke-width="1.5"/>
+          <g fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">
+            <path d="M72 57 L90 24 L108 57"/>
+            <path d="M78 47 L102 47"/>
+            <path d="M83 57 L83 43 L97 43 L97 57"/>
+            <path d="M73 62 L107 62"/>
+          </g>
+          <path d="M36 79 Q90 105 144 79 Q90 118 36 79Z" fill="url(#leafGreen)" stroke="#08713D" stroke-width="1"/>
+          <path d="M42 79 Q90 98 138 79" fill="none" stroke="#C5E7A2" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <!-- 系所聯絡資訊 -->
+      <div class="footer-school">
+        <h3>慈濟大學經營管理學系</h3>
+        <span class="english-name">Tzu Chi University</span>
+
+        <p class="contact-line">地址：花蓮市介仁街67號</p>
+        <p class="contact-line">電話：03-857-2677 #31682</p>
+        <p class="contact-line">電子郵件：ss62@gms.tcu.edu.tw</p>
+
+        <p class="contact-title">個資窗口：</p>
+        <p>姓名：林珍如主任</p>
+        <p>聯絡電話：03-857-2677 #33126</p>
+        <p>電子郵件：lih5374@gms.tcu.edu.tw</p>
+
+        <hr class="footer-divider">
+
+        <!-- 請替換為學校正式社群網址 -->
+        <div class="social-links" aria-label="社群媒體">
+          <a class="social-link facebook"
+             href="https://www.facebook.com/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5h1.7V3.7c-.8-.1-1.7-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
+            </svg>
+          </a>
+
+          <a class="social-link instagram"
+             href="https://www.instagram.com/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.1-3.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+            </svg>
+          </a>
+
+          <a class="social-link youtube"
+             href="https://www.youtube.com/"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="YouTube">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+            </svg>
+          </a>
+        </div>
+        <p class="footer-social-note">社群圖示連結目前為通用示範網址。</p>
+      </div>
+
+      <!-- 版權聲明 -->
+      <div class="footer-legal">
+        <p>© <span id="footerYear">2026</span></p>
+        <p class="copyright-note">
+          慈濟大學經營管理學系版權所有。<br>
+          轉載圖文請先徵得同意。
+        </p>
+        <p class="english-copyright">
+          © <span id="footerYearEnglish">2026</span> TCU. All Rights Reserved.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 自動更新年份
+  const currentYear = new Date().getFullYear();
+  document.getElementById("footerYear").textContent = currentYear;
+  document.getElementById("footerYearEnglish").textContent = currentYear;
+
+  // 學生作品互動視窗
+  const workModal = document.getElementById("workModal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalDescription = document.getElementById("modalDescription");
+  let lastFocusedElement = null;
+
+  document.querySelectorAll(".work-button").forEach(function(button) {
+    button.addEventListener("click", function() {
+      lastFocusedElement = button;
+      modalTitle.textContent = button.dataset.title;
+      modalDescription.textContent = button.dataset.description;
+      workModal.hidden = false;
+      document.body.style.overflow = "hidden";
+      document.getElementById("closeModal").focus();
+    });
+  });
+
+  function closeWorkModal() {
+    workModal.hidden = true;
+    document.body.style.overflow = "";
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+  }
+
+  document.getElementById("closeModal").addEventListener("click", closeWorkModal);
+  document.getElementById("confirmModal").addEventListener("click", closeWorkModal);
+
+  workModal.addEventListener("click", function(event) {
+    if (event.target === workModal) closeWorkModal();
+  });
+
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape" && !workModal.hidden) closeWorkModal();
+  });
+
+  // 智慧營運中心：更新模擬數據
+  function updateDashboard() {
+    const button = document.getElementById("updateButton");
+    const message = document.getElementById("updateMessage");
+
+    const metrics = [
+      { id: "participation", min: 70, max: 99 },
+      { id: "completion", min: 75, max: 100 },
+      { id: "projects", min: 60, max: 95 },
+      { id: "resources", min: 40, max: 90 }
+    ];
+
+    const sustainabilityTips = [
+      "鼓勵資源共享、數位化作業與環境友善的管理方式。",
+      "可持續觀察能源使用與紙張消耗，尋找改善機會。",
+      "透過數位工具整合資訊，提升資源使用效率。",
+      "將永續理念融入日常管理與團隊合作。"
+    ];
+
+    const recommendations = [
+      "可從學習參與、課程回饋及專題進度進行觀察，作為改善參考。",
+      "建議定期檢視工作流程，找出可簡化或優化的步驟。",
+      "可蒐集使用者意見，了解需求並規劃服務改善方向。",
+      "鼓勵團隊交流，透過共同討論提出具體改善方案。"
+    ];
+
+    button.disabled = true;
+    button.textContent = "⏳ 正在更新...";
+
+    window.setTimeout(function() {
+      metrics.forEach(function(metric) {
+        const value = Math.floor(
+          Math.random() * (metric.max - metric.min + 1)
+        ) + metric.min;
+
+        document.getElementById(metric.id).textContent = value + "%";
+      });
+
+      document.getElementById("sustainability").textContent =
+        sustainabilityTips[Math.floor(Math.random() * sustainabilityTips.length)];
+
+      document.getElementById("recommendation").textContent =
+        recommendations[Math.floor(Math.random() * recommendations.length)];
+
+      const time = new Date().toLocaleTimeString("zh-TW", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+
+      message.textContent = "✅ 模擬數據已更新！更新時間：" + time;
+      button.disabled = false;
+      button.textContent = "✨ 再次更新模擬數據";
+    }, 450);
+  }
+
+  document.getElementById("updateButton").addEventListener("click", updateDashboard);
+
+  // 導覽列平滑捲動
+  document.querySelectorAll('.nav-links a, .button-group a, .brand').forEach(function(link) {
+    link.addEventListener("click", function(event) {
+      const targetId = link.getAttribute("href");
+
+      if (targetId && targetId.startsWith("#")) {
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
